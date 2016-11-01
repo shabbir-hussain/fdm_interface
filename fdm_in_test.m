@@ -27,7 +27,56 @@ ex_psi= 2.8614158630371;
 ex_alpha = 0.07770574837923; 
 ex_beta=0;
 ex_phidot=-0.0037207456771284;
-        
+
+ex_vcas =70.989067077637; 
+ex_climb_rate = -10.112714767456; 
+ex_v_north = -133.33920288086; 
+ex_v_east =50.627849578857;
+ex_v_down =10.112714767456; 
+ex_v_wind_body_north = 142.14254760742;
+ex_v_wind_body_east = -12.34609413147;
+ex_v_wind_body_down =9.3734474182129;
+ex_A_X_pilot = -0.76622897386551;
+ex_A_Y_pilot =0.048583883792162;
+ex_A_Z_pilot =-32.121486663818; 
+ex_stall_warning = 0; 
+ex_slip_deg = 0.013799147680402; 
+
+num_tanks [uint32_t]: 4 :: Max number of fuel tanks   
+        fuel_quantity[LEFT] [float]: 19.995708465576 ::  Level US Gallons
+        fuel_quantity[CENTER] [float]: 19.995708465576 ::  Level US Gallons
+        fuel_quantity[RIGHT] [float]: 0.0085825026035309 ::  Level US Gallons
+        fuel_quantity[AUX] [float]: 0 ::  Level US Gallons
+    Landing Gear
+        num_wheels [uint32_t]: 3 ::   
+        wow[NOSE] [uint32_t]: 0 :: Weight On Wheels
+        wow[LEFT] [uint32_t]: 0 :: Weight On Wheels
+        wow[RIGHT] [uint32_t]: 0 :: Weight On Wheels
+        gear_pos[NOSE] [float]: 1 :: (normalized values) 0.0 to 1.0
+        gear_pos[LEFT] [float]: 1 :: (normalized values) 0.0 to 1.0
+        gear_pos[RIGHT] [float]: 1 :: (normalized values) 0.0 to 1.0
+        gear_steer[NOSE] [float]: 0 :: (normalized values) -1.0 to 1.0
+        gear_steer[LEFT] [float]: 0 :: (normalized values) -1.0 to 1.0
+        gear_steer[RIGHT] [float]: 0 :: (normalized values) -1.0 to 1.0
+        gear_compression[NOSE] [float]: 0 :: (normalized values) 0.0 to 1.0
+        gear_compression[LEFT] [float]: 0 :: (normalized values) 0.0 to 1.0
+        gear_compression[RIGHT] [float]: 0 :: (normalized values) 0.0 to 1.0
+    Maintenance
+        cur_time [uint32_t]: 2004-06-01 4:02:39 PM :: current unix time 
+        warp [int32_t]: -391395733 :: offset in seconds to unix time   
+        visibility [float]: 16093.440429688 :: visibility in meters (for env. effects)   
+    Flight Controls
+        elevator [float]: -0.099981136620045 :: (normalized values) -1 to 1 
+        elevator_trim_tab [float]: 0 :: (normalized values) -1 to 1 
+        left_flap [float]: 0 :: (normalized values) -1 to 1 
+        right_flap [float]: 0 :: (normalized values) -1 to 1 
+        left_aileron [float]: 0.026994906365871 :: (normalized values) -1 to 1 
+        right_aileron [float]: 0.026994906365871 :: (normalized values) -1 to 1 
+        rudder [float]: -0 :: (normalized values) -1 to 1 
+        nose_wheel [float]: 0 :: (normalized values) -1 to 1 
+        speedbrake [float]: 0 :: (normalized values) -1 to 1 
+        spoilers [float]: 0 :: (normalized values) -1 to 1 
+
 
 % Verify
 assert(abs(Version - ex_Version) < tolerance);

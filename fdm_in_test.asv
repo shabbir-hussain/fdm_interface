@@ -4,41 +4,92 @@
 
 
 % Run Sim
+clc;
 clear;
-zero = uint8(0);
-sim_input = [0 0 0 0 24 0 0 0 0 192 1 24 241 40 69 134 63 229 4 246 182 76 84 96 64 152 104 70 238 255 30 217 68 177 197 86 189 157 251 70 188 214 151 62 64 48 217 31 61 159 189 219 0 0 0 0 187 41 183 97 187 156 202 190 188 150 243 90 66 140 164 60 193 85 198 127 194 255 45 97 66 119 153 65 85 198 127 67 176 18 193 47 244 248 65 79 162 191 65 89 61 61 137 156 64 193 252 171 104 0 0 0 0 60 168 109 194 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 66 20 19 166 66 20 19 166 0 0 0 0 0 0 0 0 66 31 6 18 66 31 157 249 0 0 0 0 0 0 0 0 65 200 2 8 65 200 2 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 66 7 204 42 66 7 209 30 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 65 159 247 54 65 159 247 54 60 12 157 160 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 63 128 0 0 63 128 0 0 63 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 64 188 224 229 232 171 198 107 70 123 117 195 189 204 194 233 0 0 0 0 0 0 0 0 0 0 0 0 60 221 36 108 60 221 36 108 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0];
-sim('FDM_in_Test');
 
-   00 00 00 18 00 00 00 00 c0 01 18 f1 bf 82 6a b7
-   3f e5 05 45 32 74 1e 8c 40 98 bf 1d bb 1e ca 89
-   44 b6 3b 53 bd 6e 10 92 b9 9c d6 1c 40 37 19 d1
-   3d 9f 27 6f 00 00 00 00 bb 73 82 08 ba 39 dd e3
-   bc 64 f5 1d 42 8d f4 df c1 21 d6 47 c3 05 4d 43
-   42 4a b6 e7 41 21 d6 47 43 0e 20 59 c1 45 71 91
-   41 15 f0 d5 bf 44 16 01 3d 47 d7 03 c2 00 73 e3
-   00 00 00 00 3c 62 d8 ac 00 00 00 04 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 42 13 20 57
-   42 13 20 57 00 00 00 00 00 00 00 00 42 1e 04 d2
-   42 1e 9f cf 00 00 00 00 00 00 00 00 41 c7 8e 14
-   41 c7 8e 14 00 00 00 00 00 00 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 42 07 a4 1a
-   42 07 a8 c6 00 00 00 00 00 00 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04
-   41 9f f7 36 41 9f f7 36 3c 0c 9d a0 00 00 00 00
-   00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00
-   3f 80 00 00 3f 80 00 00 3f 80 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-   00 00 00 00 40 bc e0 df e8 ab c6 6b 46 7b 75 c3
-   bd cc c2 e9 00 00 00 00 00 00 00 00 00 00 00 00
-   3c dd 24 6c 3c dd 24 6c 80 00 00 00 00 00 00 00
-   00 00 00 00 00 00 00 00
+%input frmo fgtrace.pcapng
+tolerance = 0.2;
+%pad with 0
+sim_input = [0, 0, 0, 0, 24, 0, 0, 0, 0, 192, 1, 24, 241, 191, 130, 106, 183, 63, 229, 5, 69, 50, 116, 30, 140, 64, 152, 191, 29, 187, 30, 202, 137, 68, 182, 59, 83, 189, 110, 16, 146, 185, 156, 214, 28, 64, 55, 25, 209, 61, 159, 39, 111, 0, 0, 0, 0, 187, 115, 130, 8, 186, 57, 221, 227, 188, 100, 245, 29, 66, 141, 244, 223, 193, 33, 214, 71, 195, 5, 77, 67, 66, 74, 182, 231, 65, 33, 214, 71, 67, 14, 32, 89, 193, 69, 113, 145, 65, 21, 240, 213, 191, 68, 22, 1, 61, 71, 215, 3, 194, 0, 115, 227, 0, 0, 0, 0, 60, 98, 216, 172, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66, 19, 32, 87, 66, 19, 32, 87, 0, 0, 0, 0, 0, 0, 0, 0, 66, 30, 4, 210, 66, 30, 159, 207, 0, 0, 0, 0, 0, 0, 0, 0, 65, 199, 142, 20, 65, 199, 142, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66, 7, 164, 26, 66, 7, 168, 198, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 65, 159, 247, 54, 65, 159, 247, 54, 60, 12, 157, 160, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 128, 0, 0, 63, 128, 0, 0, 63, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 188, 224, 223, 232, 171, 198, 107, 70, 123, 117, 195, 189, 204, 194, 233, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 221, 36, 108, 60, 221, 36, 108, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+sim('FDM_in_Test');
 
 % Init expected Values
 ex_Version = 24;
 ex_Padding = 0;
 
+ex_longitude= -2.1371799496168;
+ex_latitude = 0.65689356020243; 
+ex_altitude=1583.8861798111; 
+ex_agl=1457.9423828125;
+ex_phi= -0.057997327297926;    
+ex_theta= -0.00027710723225027;   
+ex_psi= 2.8614158630371;    
+ex_alpha = 0.07770574837923; 
+ex_beta=0;
+ex_phidot=-0.0037207456771284;
+
+vcas =70.989067077637; 
+climb_rate = -10.112714767456; 
+v_north = -133.33920288086; 
+v_east =50.627849578857;
+v_down =10.112714767456; 
+v_wind_body_north = 142.14254760742;
+v_wind_body_east = -12.34609413147;
+v_wind_body_down =9.3734474182129;
+exA_X_pilot = -0.76622897386551;
+ex_A_Y_pilot =0.048583883792162;
+ex_A_Z_pilot =-32.121486663818; 
+ex_stall_warning = 0; 
+ex_slip_deg = 0.013799147680402; 
+
+num_tanks [uint32_t]: 4 :: Max number of fuel tanks   
+        fuel_quantity[LEFT] [float]: 19.995708465576 ::  Level US Gallons
+        fuel_quantity[CENTER] [float]: 19.995708465576 ::  Level US Gallons
+        fuel_quantity[RIGHT] [float]: 0.0085825026035309 ::  Level US Gallons
+        fuel_quantity[AUX] [float]: 0 ::  Level US Gallons
+    Landing Gear
+        num_wheels [uint32_t]: 3 ::   
+        wow[NOSE] [uint32_t]: 0 :: Weight On Wheels
+        wow[LEFT] [uint32_t]: 0 :: Weight On Wheels
+        wow[RIGHT] [uint32_t]: 0 :: Weight On Wheels
+        gear_pos[NOSE] [float]: 1 :: (normalized values) 0.0 to 1.0
+        gear_pos[LEFT] [float]: 1 :: (normalized values) 0.0 to 1.0
+        gear_pos[RIGHT] [float]: 1 :: (normalized values) 0.0 to 1.0
+        gear_steer[NOSE] [float]: 0 :: (normalized values) -1.0 to 1.0
+        gear_steer[LEFT] [float]: 0 :: (normalized values) -1.0 to 1.0
+        gear_steer[RIGHT] [float]: 0 :: (normalized values) -1.0 to 1.0
+        gear_compression[NOSE] [float]: 0 :: (normalized values) 0.0 to 1.0
+        gear_compression[LEFT] [float]: 0 :: (normalized values) 0.0 to 1.0
+        gear_compression[RIGHT] [float]: 0 :: (normalized values) 0.0 to 1.0
+    Maintenance
+        cur_time [uint32_t]: 2004-06-01 4:02:39 PM :: current unix time 
+        warp [int32_t]: -391395733 :: offset in seconds to unix time   
+        visibility [float]: 16093.440429688 :: visibility in meters (for env. effects)   
+    Flight Controls
+        elevator [float]: -0.099981136620045 :: (normalized values) -1 to 1 
+        elevator_trim_tab [float]: 0 :: (normalized values) -1 to 1 
+        left_flap [float]: 0 :: (normalized values) -1 to 1 
+        right_flap [float]: 0 :: (normalized values) -1 to 1 
+        left_aileron [float]: 0.026994906365871 :: (normalized values) -1 to 1 
+        right_aileron [float]: 0.026994906365871 :: (normalized values) -1 to 1 
+        rudder [float]: -0 :: (normalized values) -1 to 1 
+        nose_wheel [float]: 0 :: (normalized values) -1 to 1 
+        speedbrake [float]: 0 :: (normalized values) -1 to 1 
+        spoilers [float]: 0 :: (normalized values) -1 to 1 
+
 
 % Verify
+assert(abs(Version - ex_Version) < tolerance);
+assert(abs(Longitude - ex_longitude) < tolerance);
+assert(abs(Latitude - ex_latitude) < tolerance);
+assert(abs(Altitude - ex_altitude) < tolerance);
+assert(abs(Agl - ex_agl) < tolerance);
+assert(abs(Phi - ex_phi) < tolerance);
+assert(abs(Theta - ex_theta) < tolerance);
+assert(abs(Psi - ex_psi) < tolerance);
+assert(abs(Alpha - ex_alpha) < tolerance);
+assert(abs(Beta - ex_beta) < tolerance);
+assert(abs(PhiDot - ex_phidot) < tolerance);
+
+
+disp('Fdm_in_test: Passing');
