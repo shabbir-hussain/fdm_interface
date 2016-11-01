@@ -42,40 +42,40 @@ ex_A_Z_pilot =-32.121486663818;
 ex_stall_warning = 0; 
 ex_slip_deg = 0.013799147680402; 
 
-num_tanks [uint32_t]: 4 :: Max number of fuel tanks   
-        fuel_quantity[LEFT] [float]: 19.995708465576 ::  Level US Gallons
-        fuel_quantity[CENTER] [float]: 19.995708465576 ::  Level US Gallons
-        fuel_quantity[RIGHT] [float]: 0.0085825026035309 ::  Level US Gallons
-        fuel_quantity[AUX] [float]: 0 ::  Level US Gallons
-    Landing Gear
-        num_wheels [uint32_t]: 3 ::   
-        wow[NOSE] [uint32_t]: 0 :: Weight On Wheels
-        wow[LEFT] [uint32_t]: 0 :: Weight On Wheels
-        wow[RIGHT] [uint32_t]: 0 :: Weight On Wheels
-        gear_pos[NOSE] [float]: 1 :: (normalized values) 0.0 to 1.0
-        gear_pos[LEFT] [float]: 1 :: (normalized values) 0.0 to 1.0
-        gear_pos[RIGHT] [float]: 1 :: (normalized values) 0.0 to 1.0
-        gear_steer[NOSE] [float]: 0 :: (normalized values) -1.0 to 1.0
-        gear_steer[LEFT] [float]: 0 :: (normalized values) -1.0 to 1.0
-        gear_steer[RIGHT] [float]: 0 :: (normalized values) -1.0 to 1.0
-        gear_compression[NOSE] [float]: 0 :: (normalized values) 0.0 to 1.0
-        gear_compression[LEFT] [float]: 0 :: (normalized values) 0.0 to 1.0
-        gear_compression[RIGHT] [float]: 0 :: (normalized values) 0.0 to 1.0
-    Maintenance
-        cur_time [uint32_t]: 2004-06-01 4:02:39 PM :: current unix time 
-        warp [int32_t]: -391395733 :: offset in seconds to unix time   
-        visibility [float]: 16093.440429688 :: visibility in meters (for env. effects)   
-    Flight Controls
-        elevator [float]: -0.099981136620045 :: (normalized values) -1 to 1 
-        elevator_trim_tab [float]: 0 :: (normalized values) -1 to 1 
-        left_flap [float]: 0 :: (normalized values) -1 to 1 
-        right_flap [float]: 0 :: (normalized values) -1 to 1 
-        left_aileron [float]: 0.026994906365871 :: (normalized values) -1 to 1 
-        right_aileron [float]: 0.026994906365871 :: (normalized values) -1 to 1 
-        rudder [float]: -0 :: (normalized values) -1 to 1 
-        nose_wheel [float]: 0 :: (normalized values) -1 to 1 
-        speedbrake [float]: 0 :: (normalized values) -1 to 1 
-        spoilers [float]: 0 :: (normalized values) -1 to 1 
+ex_num_tanks = 4;
+ex_fuel_quantityL = 19.995708465576;
+ex_fuel_quantityC = 19.995708465576;
+ex_fuel_quantityR = 0.0085825026035309;
+ex_fuel_quantityA = 0;
+
+ex_num_wheels = 3 ;
+ex_wowN = 0 ;
+ex_wowL = 0 ;
+ex_wowR = 0 ;
+ex_gear_posN= 1 ;
+ex_gear_posL= 1 ;
+ex_gear_posR= 1 ;
+ex_gear_steerN = 0 ;
+ex_gear_steerL = 0 ;
+ex_gear_steerR = 0 ;
+ex_gear_compressionN = 0 ;
+ex_gear_compressionL = 0 ;
+ex_gear_compressionR = 0 ;
+
+ex_cur_time = 1086120159;
+ex_warp =-391395733 ;
+ex_visibility = 16093.440429688 ;
+
+ex_elevator = -0.099981136620045 ;
+ex_elevator_trim_tab = 0 ;
+ex_left_flap = 0 ;
+ex_right_flap = 0 ;
+ex_left_aileron = 0.026994906365871 ;
+ex_right_aileron = 0.026994906365871 ;
+ex_rudder = -0 ;
+ex_nose_wheel = 0 ;
+ex_speedbrake = 0 ;
+ex_spoilers = 0 ;
 
 
 % Verify
@@ -91,5 +91,59 @@ assert(abs(Alpha - ex_alpha) < tolerance);
 assert(abs(Beta - ex_beta) < tolerance);
 assert(abs(PhiDot - ex_phidot) < tolerance);
 
+
+assert(abs(Vcas - ex_vcas) < tolerance);
+assert(abs(Climb_rate- ex_climb_rate) < tolerance);
+assert(abs(V_north - ex_v_north ) < tolerance);
+assert(abs(V_east - ex_v_east ) < tolerance);
+assert(abs(V_down - ex_v_down ) < tolerance);
+assert(abs(V_body_north - ex_v_wind_body_north ) < tolerance);
+assert(abs(V_body_east - ex_v_wind_body_east ) < tolerance);
+assert(abs(V_body_down - ex_v_wind_body_down ) < tolerance);
+assert(abs(A_x_pilot - ex_A_X_pilot ) < tolerance);
+assert(abs(A_y_pilot - ex_A_Y_pilot ) < tolerance);
+assert(abs(A_z_pilot - ex_A_Z_pilot ) < tolerance);
+assert(abs(Stall_warning - ex_stall_warning ) < tolerance);
+assert(abs(Slip_deg - ex_slip_deg ) < tolerance);
+
+assert(abs(Num_tanks - ex_num_tanks ) < tolerance);
+assert(abs(Fuel_quantity(0) - ex_fuel_quantityL ) < tolerance);
+assert(abs(Fuel_quantity(1) - ex_fuel_quantityC ) < tolerance);
+assert(abs(Fuel_quantity(2) - ex_fuel_quantityR ) < tolerance);
+assert(abs(Fuel_quantity(3) - ex_fuel_quantityA ) < tolerance);
+
+assert(abs() < tolerance);
+assert(abs() < tolerance);
+assert(abs() < tolerance);
+
+
+assert(abs(Num_wheels - ex_num_wheels) < tolerance);
+assert(abs(Wow(0) - ex_wowN) < tolerance);
+assert(abs(Wow(1) - ex_wowL) < tolerance);
+assert(abs(Wow(2) - ex_wowR) < tolerance);
+assert(abs(Gear_pos(0) - ex_gear_pos) < tolerance);
+assert(abs(Gear_pos(1) - ex_gear_pos) < tolerance);
+assert(abs(Gear_pos(2) - ex_gear_pos) < tolerance);
+assert(abs(Gear_steer(0) - ex_gear_steerN) < tolerance);
+assert(abs(Gear_steer(1) - ex_gear_steerL) < tolerance);
+assert(abs(Gear_steer(2) - ex_gear_steerR) < tolerance);
+assert(abs(Gear_compression(0) - ex_gear_compressionN) < tolerance);
+assert(abs(Gear_compression(1) - ex_gear_compressionL) < tolerance);
+assert(abs(Gear_compression(2) - ex_gear_compressionR) < tolerance);
+
+assert(abs(Cur_time - ex_cur_time) < tolerance);
+assert(abs(Warp - ex_warp) < tolerance);
+assert(abs(Visibility - ex_visibility ) < tolerance);
+
+assert(abs(Elevator - ex_elevator = -0.09998113662) < tolerance);
+assert(abs(Elevator_trim_tab - ex_elevator_trim_tab) < tolerance);
+assert(abs(Left_flap  - ex_left_flap) < tolerance);
+assert(abs(Right_flap - ex_right_flap) < tolerance);
+assert(abs(Left_aileron - ex_left_aileron ) < tolerance);
+assert(abs(Right_aileron -  ex_right_aileron ) < tolerance);
+assert(abs(Rudder - ex_rudder ) < tolerance);
+assert(abs(Nose_wheel - ex_nose_wheel) < tolerance);
+assert(abs(SpeedBrake - ex_speedbrake) < tolerance);
+assert(abs(Spoiler - ex_spoilers) < tolerance);
 
 disp('Fdm_in_test: Passing');
