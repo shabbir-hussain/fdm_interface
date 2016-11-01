@@ -133,9 +133,11 @@ void BytesToFdm_Outputs_wrapper(const uint8_T *Input,
     
     populateUint32(Input,&offset,num_engines);
     populateUint32_arr(Input,&offset,eng_state,4);
+    populateReal32_arr(Input,&offset,rpm,4);
     populateReal32_arr(Input,&offset,fuel_flow,4);
     populateReal32_arr(Input,&offset,fuel_px,4);
     populateReal32_arr(Input,&offset,egt,4);
+    populateReal32_arr(Input,&offset,cht,4);
     populateReal32_arr(Input,&offset,mp_osi,4);
     populateReal32_arr(Input,&offset,tit,4);
     populateReal32_arr(Input,&offset,oil_temp,4);

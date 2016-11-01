@@ -128,54 +128,57 @@ assert(abs(Stall_warning - ex_stall_warning ) < tolerance);
 assert(abs(Slip_deg - ex_slip_deg ) < tolerance);
 
 
- 
+left = 1;
+right = 2;
 assert(abs(Num_engines - ex_num_engines  ) < tolerance);
-assert(abs(Eng_status(0) - ex_eng_stateL  ) < tolerance);
-assert(abs(Eng_status(1) - ex_eng_stateR  ) < tolerance);
-assert(abs(Rpm(0) - ex_rpmL  ) < tolerance);
-assert(abs(Rpm(1) - ex_rpmR  ) < tolerance);
-assert(abs(Fuel_flow(0) - ex_fuel_flowL  ) < tolerance);
-assert(abs(Fuel_flow(1) - ex_fuel_flowR  ) < tolerance);
-assert(abs(Fuel_px(0) - ex_fuel_pxL  ) < tolerance);
-assert(abs(Fuel_px(1) - ex_fuel_pxR  ) < tolerance);
-assert(abs(Egt(0) - ex_egtL ) < tolerance);
-assert(abs(Egt(1) - ex_egtR ) < tolerance);
-assert(abs(Cht(0) - ex_chtL ) < tolerance);
-assert(abs(Cht(1) - ex_chtR ) < tolerance);
-assert(abs(Mp_osi(0) - ex_mp_osiL ) < tolerance);
-assert(abs(Mp_osi(1) - ex_mp_osiR ) < tolerance);
-assert(abs(Tit(0) - ex_titL  ) < tolerance);
-assert(abs(Tit(1) - ex_titR  ) < tolerance);
-assert(abs(Oil_temp(0) - ex_oil_tempL) < tolerance);
-assert(abs(Oil_temp(1) - ex_oil_tempR ) < tolerance);
-assert(abs(Oil_px(0) - ex_oil_pxL  ) < tolerance);
-assert(abs(Oil_px(1) - ex_oil_pxR  ) < tolerance);
+assert(abs(Eng_status(left) - ex_eng_stateL  ) < tolerance);
+assert(abs(Eng_status(right) - ex_eng_stateR  ) < tolerance);
+assert(abs(Rpm(left) - ex_rpmL  ) < tolerance);
+assert(abs(Rpm(right) - ex_rpmR  ) < tolerance);
+assert(abs(Fuel_flow(left) - ex_fuel_flowL  ) < tolerance);
+assert(abs(Fuel_flow(right) - ex_fuel_flowR  ) < tolerance);
+assert(abs(Fuel_px(left) - ex_fuel_pxL  ) < tolerance);
+assert(abs(Fuel_px(right) - ex_fuel_pxR  ) < tolerance);
+assert(abs(Egt(left) - ex_egtL ) < tolerance);
+assert(abs(Egt(right) - ex_egtR ) < tolerance);
+assert(abs(Cht(left) - ex_chtL ) < tolerance);
+assert(abs(Cht(right) - ex_chtR ) < tolerance);
+assert(abs(Mp_osi(left) - ex_mp_osiL ) < tolerance);
+assert(abs(Mp_osi(right) - ex_mp_osiR ) < tolerance);
+assert(abs(Tit(left) - ex_titL  ) < tolerance);
+assert(abs(Tit(right) - ex_titR  ) < tolerance);
+assert(abs(Oil_temp(left) - ex_oil_tempL) < tolerance);
+assert(abs(Oil_temp(right) - ex_oil_tempR ) < tolerance);
+assert(abs(Oil_px(left) - ex_oil_pxL  ) < tolerance);
+assert(abs(Oil_px(right) - ex_oil_pxR  ) < tolerance);
 
 
+left = 1;
+center = 2;
+right = 3;
+aux = 4;
 assert(abs(Num_tanks - ex_num_tanks ) < tolerance);
-assert(abs(Fuel_quantity(0) - ex_fuel_quantityL ) < tolerance);
-assert(abs(Fuel_quantity(1) - ex_fuel_quantityC ) < tolerance);
-assert(abs(Fuel_quantity(2) - ex_fuel_quantityR ) < tolerance);
-assert(abs(Fuel_quantity(3) - ex_fuel_quantityA ) < tolerance);
+assert(abs(Fuel_quantity(left) - ex_fuel_quantityL ) < tolerance);
+assert(abs(Fuel_quantity(center) - ex_fuel_quantityC ) < tolerance);
+assert(abs(Fuel_quantity(right) - ex_fuel_quantityR ) < tolerance);
+assert(abs(Fuel_quantity(aux) - ex_fuel_quantityA ) < tolerance);
 
-assert(abs() < tolerance);
-assert(abs() < tolerance);
-assert(abs() < tolerance);
-
-
+nose = 1;
+left = 2;
+right = 3;
 assert(abs(Num_wheels - ex_num_wheels) < tolerance);
-assert(abs(Wow(0) - ex_wowN) < tolerance);
-assert(abs(Wow(1) - ex_wowL) < tolerance);
-assert(abs(Wow(2) - ex_wowR) < tolerance);
-assert(abs(Gear_pos(0) - ex_gear_pos) < tolerance);
-assert(abs(Gear_pos(1) - ex_gear_pos) < tolerance);
-assert(abs(Gear_pos(2) - ex_gear_pos) < tolerance);
-assert(abs(Gear_steer(0) - ex_gear_steerN) < tolerance);
-assert(abs(Gear_steer(1) - ex_gear_steerL) < tolerance);
-assert(abs(Gear_steer(2) - ex_gear_steerR) < tolerance);
-assert(abs(Gear_compression(0) - ex_gear_compressionN) < tolerance);
-assert(abs(Gear_compression(1) - ex_gear_compressionL) < tolerance);
-assert(abs(Gear_compression(2) - ex_gear_compressionR) < tolerance);
+assert(abs(Wow(nose) - ex_wowN) < tolerance);
+assert(abs(Wow(left) - ex_wowL) < tolerance);
+assert(abs(Wow(right) - ex_wowR) < tolerance);
+assert(abs(Gear_pos(nose) - ex_gear_posN) < tolerance);
+assert(abs(Gear_pos(left) - ex_gear_posL) < tolerance);
+assert(abs(Gear_pos(right) - ex_gear_posR) < tolerance);
+assert(abs(Gear_steer(nose) - ex_gear_steerN) < tolerance);
+assert(abs(Gear_steer(left) - ex_gear_steerL) < tolerance);
+assert(abs(Gear_steer(right) - ex_gear_steerR) < tolerance);
+assert(abs(Gear_compression(nose) - ex_gear_compressionN) < tolerance);
+assert(abs(Gear_compression(left) - ex_gear_compressionL) < tolerance);
+assert(abs(Gear_compression(right) - ex_gear_compressionR) < tolerance);
 
 assert(abs(Cur_time - ex_cur_time) < tolerance);
 assert(abs(Warp - ex_warp) < tolerance);
@@ -190,6 +193,6 @@ assert(abs(Right_aileron -  ex_right_aileron ) < tolerance);
 assert(abs(Rudder - ex_rudder ) < tolerance);
 assert(abs(Nose_wheel - ex_nose_wheel) < tolerance);
 assert(abs(SpeedBrake - ex_speedbrake) < tolerance);
-assert(abs(Spoiler - ex_spoilers) < tolerance);
+assert(abs(Spoilers - ex_spoilers) < tolerance);
 
 disp('Fdm_in_test: Passing');

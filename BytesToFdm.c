@@ -25,7 +25,7 @@
   *  -------------------------------------------------------------------------
   * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
   *  ------------------------------------------------------------------------- 
-* Created: Tue Nov  1 16:48:33 2016
+* Created: Tue Nov  1 18:05:00 2016
 */
 #define S_FUNCTION_LEVEL 2
 #define S_FUNCTION_NAME BytesToFdm
