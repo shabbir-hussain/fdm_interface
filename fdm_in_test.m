@@ -2,7 +2,6 @@
 % Date: Nov 1 2016
 % Desc: This script Tests the bytes to FDM S-function
 
-
 % Run Sim
 clc;
 clear;
@@ -41,6 +40,28 @@ ex_A_Y_pilot =0.048583883792162;
 ex_A_Z_pilot =-32.121486663818; 
 ex_stall_warning = 0; 
 ex_slip_deg = 0.013799147680402; 
+
+    num_engines [uint32_t]: 4 :: Number of valid engines   
+    eng_state[LEFT] [uint32_t]: 0 :: Engine state (off, cranking, running)   
+    eng_state[RIGHT] [uint32_t]: 0 :: Engine state (off, cranking, running)   
+    rpm[LEFT] [float]: 0 :: Engine RPM rev min  
+    rpm[RIGHT] [float]: 0 :: Engine RPM rev min  
+    fuel_flow[LEFT] [float]: 0 :: Fuel flow gallons hr  
+    fuel_flow[RIGHT] [float]: 0 :: Fuel flow gallons hr  
+    fuel_px[LEFT] [float]: 0 :: Fuel pressure psi   
+    fuel_px[RIGHT] [float]: 0 :: Fuel pressure psi   
+    egt[LEFT] [float]: 36.780261993408 :: Exhuast gas temp deg F   
+    egt[RIGHT] [float]: 36.780261993408 :: Exhuast gas temp deg F   
+    cht[LEFT] [float]: 39.503299713135 :: Cylinder head temp deg F   
+    cht[RIGHT] [float]: 39.654674530029 :: Cylinder head temp deg F   
+    mp_osi[LEFT] [float]: 24.944116592407 :: Manifold pressure   
+    mp_osi[RIGHT] [float]: 24.944116592407 :: Manifold pressure   
+    tit[LEFT] [float]: 0 :: Turbine Inlet Temperature   
+    tit[RIGHT] [float]: 0 :: Turbine Inlet Temperature   
+    oil_temp[LEFT] [float]: 33.910041809082 :: Oil temp deg F   
+    oil_temp[RIGHT] [float]: 33.914600372314 :: Oil temp deg F   
+    oil_px[LEFT] [float]: 0 :: Oil pressure psi   
+    oil_px[RIGHT] [float]: 0 :: Oil pressure psi  
 
 ex_num_tanks = 4;
 ex_fuel_quantityL = 19.995708465576;
@@ -106,6 +127,10 @@ assert(abs(A_z_pilot - ex_A_Z_pilot ) < tolerance);
 assert(abs(Stall_warning - ex_stall_warning ) < tolerance);
 assert(abs(Slip_deg - ex_slip_deg ) < tolerance);
 
+
+ 
+
+
 assert(abs(Num_tanks - ex_num_tanks ) < tolerance);
 assert(abs(Fuel_quantity(0) - ex_fuel_quantityL ) < tolerance);
 assert(abs(Fuel_quantity(1) - ex_fuel_quantityC ) < tolerance);
@@ -135,7 +160,7 @@ assert(abs(Cur_time - ex_cur_time) < tolerance);
 assert(abs(Warp - ex_warp) < tolerance);
 assert(abs(Visibility - ex_visibility ) < tolerance);
 
-assert(abs(Elevator - ex_elevator = -0.09998113662) < tolerance);
+assert(abs(Elevator - ex_elevator) < tolerance);
 assert(abs(Elevator_trim_tab - ex_elevator_trim_tab) < tolerance);
 assert(abs(Left_flap  - ex_left_flap) < tolerance);
 assert(abs(Right_flap - ex_right_flap) < tolerance);
