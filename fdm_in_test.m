@@ -41,27 +41,27 @@ ex_A_Z_pilot =-32.121486663818;
 ex_stall_warning = 0; 
 ex_slip_deg = 0.013799147680402; 
 
-    num_engines [uint32_t]: 4 :: Number of valid engines   
-    eng_state[LEFT] [uint32_t]: 0 :: Engine state (off, cranking, running)   
-    eng_state[RIGHT] [uint32_t]: 0 :: Engine state (off, cranking, running)   
-    rpm[LEFT] [float]: 0 :: Engine RPM rev min  
-    rpm[RIGHT] [float]: 0 :: Engine RPM rev min  
-    fuel_flow[LEFT] [float]: 0 :: Fuel flow gallons hr  
-    fuel_flow[RIGHT] [float]: 0 :: Fuel flow gallons hr  
-    fuel_px[LEFT] [float]: 0 :: Fuel pressure psi   
-    fuel_px[RIGHT] [float]: 0 :: Fuel pressure psi   
-    egt[LEFT] [float]: 36.780261993408 :: Exhuast gas temp deg F   
-    egt[RIGHT] [float]: 36.780261993408 :: Exhuast gas temp deg F   
-    cht[LEFT] [float]: 39.503299713135 :: Cylinder head temp deg F   
-    cht[RIGHT] [float]: 39.654674530029 :: Cylinder head temp deg F   
-    mp_osi[LEFT] [float]: 24.944116592407 :: Manifold pressure   
-    mp_osi[RIGHT] [float]: 24.944116592407 :: Manifold pressure   
-    tit[LEFT] [float]: 0 :: Turbine Inlet Temperature   
-    tit[RIGHT] [float]: 0 :: Turbine Inlet Temperature   
-    oil_temp[LEFT] [float]: 33.910041809082 :: Oil temp deg F   
-    oil_temp[RIGHT] [float]: 33.914600372314 :: Oil temp deg F   
-    oil_px[LEFT] [float]: 0 :: Oil pressure psi   
-    oil_px[RIGHT] [float]: 0 :: Oil pressure psi  
+ex_num_engines  =  4 ;
+ex_eng_stateL  =  0 ;
+ex_eng_stateR  =  0 ;
+ex_rpmL  =  0 ;
+ex_rpmR  =  0 ;
+ex_fuel_flowL  =  0 ;
+ex_fuel_flowR  =  0 ;
+ex_fuel_pxL  =  0 ;
+ex_fuel_pxR  =  0 ;
+ex_egtL  =  36.780261993408 ;
+ex_egtR  =  36.780261993408 ;
+ex_chtL  =  39.503299713135 ;
+ex_chtR  =  39.654674530029 ;
+ex_mp_osiL  =  24.944116592407 ;
+ex_mp_osiR  =  24.944116592407 ;
+ex_titL  =  0 ;
+ex_titR  =  0 ;
+ex_oil_tempL  =  33.910041809082 ;
+ex_oil_tempR  =  33.914600372314 ;
+ex_oil_pxL  =  0 ;
+ex_oil_pxR  =  0 ;
 
 ex_num_tanks = 4;
 ex_fuel_quantityL = 19.995708465576;
@@ -129,6 +129,27 @@ assert(abs(Slip_deg - ex_slip_deg ) < tolerance);
 
 
  
+assert(abs(Num_engines - ex_num_engines  ) < tolerance);
+assert(abs(Eng_status(0) - ex_eng_stateL  ) < tolerance);
+assert(abs(Eng_status(1) - ex_eng_stateR  ) < tolerance);
+assert(abs(Rpm(0) - ex_rpmL  ) < tolerance);
+assert(abs(Rpm(1) - ex_rpmR  ) < tolerance);
+assert(abs(Fuel_flow(0) - ex_fuel_flowL  ) < tolerance);
+assert(abs(Fuel_flow(1) - ex_fuel_flowR  ) < tolerance);
+assert(abs(Fuel_px(0) - ex_fuel_pxL  ) < tolerance);
+assert(abs(Fuel_px(1) - ex_fuel_pxR  ) < tolerance);
+assert(abs(Egt(0) - ex_egtL ) < tolerance);
+assert(abs(Egt(1) - ex_egtR ) < tolerance);
+assert(abs(Cht(0) - ex_chtL ) < tolerance);
+assert(abs(Cht(1) - ex_chtR ) < tolerance);
+assert(abs(Mp_osi(0) - ex_mp_osiL ) < tolerance);
+assert(abs(Mp_osi(1) - ex_mp_osiR ) < tolerance);
+assert(abs(Tit(0) - ex_titL  ) < tolerance);
+assert(abs(Tit(1) - ex_titR  ) < tolerance);
+assert(abs(Oil_temp(0) - ex_oil_tempL) < tolerance);
+assert(abs(Oil_temp(1) - ex_oil_tempR ) < tolerance);
+assert(abs(Oil_px(0) - ex_oil_pxL  ) < tolerance);
+assert(abs(Oil_px(1) - ex_oil_pxR  ) < tolerance);
 
 
 assert(abs(Num_tanks - ex_num_tanks ) < tolerance);
